@@ -25,7 +25,8 @@ const cardVariants = {
       delay: i * 0.1,
       duration: 0.5,
       type: "spring",
-      stiffness: 100
+      stiffness: 50,
+      damping: 15
     }
   }),
   hover: {
@@ -35,7 +36,8 @@ const cardVariants = {
     transition: {
       duration: 0.3,
       type: "spring",
-      stiffness: 300
+      stiffness: 100,
+      damping: 10
     }
   },
   tap: {
@@ -64,60 +66,80 @@ const Home = () => {
   return (
     <div className="w-100">
       {/* Hero Section */}
-      <section className="position-relative vh-100 bg-dark text-white">
-  <div className="position-absolute top-25 end-0 p-5" style={{ maxWidth: "600px" }}>
-    <div className=" bg-opacity-75 p-4">
-    <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="display-2 fw-bold mb-4"
-      >
-        JansevakAI
-      </motion.h1>
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="display-6 fw-bold mb-4"
-      >
-        AI Powered Citizen Support For Bharat
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="h5 mb-4"
-      >
-        Revolutionizing Government Services With Intelligent AI Solutons.
-        
-      </motion.p>
-      <div className="d-flex gap-3">
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="btn btn-primary btn-lg"
-        >
-          Get In Touch
-        </motion.button>
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="btn btn-outline-light btn-lg"
-        >
-          Try For Free
-        </motion.button>
-      </div>
-    </div>
-  </div>
-</section>
-
+      <section className="position-relative" style={{height:"90vh"}}>
+        <div 
+          className="position-absolute" 
+          style={{
+            backgroundImage: "url('/INDIA_BANNER.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "brightness(1)",
+            height:"90vh",
+            width:"100%"
+          }}
+        />
+        <div className="position-relative h-100 d-flex align-items-center">
+          <div className="container">
+            <div className="row justify-content-end">
+              <div className="col-lg-6 col-md-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-white p-4"
+                >
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="display-2 fw-bold mb-4"
+                  >
+                    JansevakAI
+                  </motion.h1>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="display-6 fw-bold mb-4"
+                  >
+                    AI Powered Citizen Support For Bharat
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="h5 mb-4"
+                  >
+                    Revolutionizing Government Services With Intelligent AI Solutions.
+                  </motion.p>
+                  <div className="d-flex gap-3">
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn btn-primary btn-lg"
+                    >
+                      Get In Touch
+                    </motion.button>
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn btn-outline-light btn-lg"
+                    >
+                      Try For Free
+                    </motion.button>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* States Grid */}
       <section className="py-5">
@@ -147,9 +169,7 @@ const Home = () => {
                   className="card h-100"
                 >
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                    className="overflow-hidden text-center px-4 py-4"
                   >
                     <img
                       src={state.image}
