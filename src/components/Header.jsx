@@ -5,16 +5,26 @@ import { useState } from 'react'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [statesDropdown, setStatesDropdown] = useState(false)
   const location = useLocation()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
+  const toggleStatesDropdown = () => {
+    setStatesDropdown(!statesDropdown)
+  }
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
+  ]
+
+  const stateLinks = [
+    { name: 'Maharashtra', path: '/maharashtra' },
+    // Add more states here as they become available
   ]
 
   return (
@@ -54,6 +64,30 @@ const Header = () => {
                   <span className="position-absolute bottom-0 start-0 w-0 h-2 transition-all duration-300"></span>
                 </Link>
               ))}
+              
+              {/* States Dropdown */}
+              <div className="position-relative">
+                <button 
+                  className="text-white text-decoration-none bg-transparent border-0 py-2"
+                  onClick={toggleStatesDropdown}
+                >
+                  States
+                </button>
+                {statesDropdown && (
+                  <div className="position-absolute top-100 start-0 bg-dark p-2 rounded mt-1" style={{zIndex: 1000, minWidth: '150px'}}>
+                    {stateLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        className="d-block text-white text-decoration-none p-2 rounded hover-bg-primary"
+                        onClick={() => setStatesDropdown(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </motion.div>
           </nav>
 
@@ -110,6 +144,24 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
+              
+              {/* States Section in Mobile Menu */}
+              <div className="mt-2">
+                <div className="text-white-50 px-3 py-1 small">STATES</div>
+                {stateLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`text-white text-decoration-none py-2 px-3 rounded d-block ${
+                      location.pathname === link.path ? 'bg-primary' : 'hover-bg-primary'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              
               <div className="d-flex flex-column gap-3 pt-3 border-top">
                 <Link
                   to="/login"
