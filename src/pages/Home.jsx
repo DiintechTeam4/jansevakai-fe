@@ -3,13 +3,13 @@ import { FaRobot, FaArrowRight } from 'react-icons/fa'
 import { useRef, useState, useEffect } from 'react'
 
 const states = [
-  { name: 'UttarAI', image: 'https://source.unsplash.com/random/300x200?mumbai' },
-  { name: 'MahaAI', image: '/MAHARASHTRA_BANNER.jpg' },
-  { name: 'MadhyaAI', image: 'https://source.unsplash.com/random/300x200?chennai' },
-  { name: 'DelhiAI', image: 'https://source.unsplash.com/random/300x200?delhi' },
+  { name: 'UttarAI', image: '/img1.png' },
+  { name: 'MahaAI', image: '/img2.png' },
+  { name: 'MadhyaAI', image: '/img3.png' },
+  { name: 'DelhiAI', image: '' },
   { name: 'GujaratAI', image: 'https://source.unsplash.com/random/300x200?ahmedabad' },
   { name: 'RajasthanAI', image: 'https://source.unsplash.com/random/300x200?jaipur' },
-  { name: 'HaryanaAI', image: '/HARYANA_BANNER.jpg' },
+  { name: 'HaryanaAI', image: '' },
   { name: 'UttraAI', image: 'https://source.unsplash.com/random/300x200?lucknow' },
   { name: 'AssamAI', image: 'https://source.unsplash.com/random/300x200?kochi' },
   { name: 'ChattisgarhAI', image: 'https://source.unsplash.com/random/300x200?chandigarh' },
@@ -93,7 +93,7 @@ const Home = () => {
             alt="Hero Background" 
             style={{
               width: '100%',
-              height: '60vh',
+              height: '50vh',
               objectFit: 'fill',
             }}
           />
@@ -140,7 +140,7 @@ const Home = () => {
             >
               Revolutionizing Government Services With Intelligent AI Solutions.
             </motion.p>
-            <div className="d-flex gap-2 justify-content-center">
+            <div className="d-flex gap-4 justify-content-center">
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ const Home = () => {
                 className="btn btn-outline-light"
                 style={{ fontSize: '0.9rem' }}
               >
-                Try For Free
+                Try Now
               </motion.button>
             </div>
           </div>
@@ -289,7 +289,7 @@ const Home = () => {
                     <img
                       src={state.image}
                       className="card-img-top object-fit-fill"
-                      style={{ height: '200px' }}
+                      style={{ height: '50vh' }}
                       alt={state.name}
                     />
                   </motion.div>
