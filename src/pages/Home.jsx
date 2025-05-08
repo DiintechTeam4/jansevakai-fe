@@ -1,15 +1,15 @@
 import { motion, useInView } from 'framer-motion'
 import { FaRobot, FaArrowRight } from 'react-icons/fa'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 const states = [
   { name: 'UttarAI', image: 'https://source.unsplash.com/random/300x200?mumbai' },
-  { name: 'MahaAI', image: 'https://source.unsplash.com/random/300x200?bangalore' },
+  { name: 'MahaAI', image: '/MAHARASHTRA_BANNER.jpg' },
   { name: 'MadhyaAI', image: 'https://source.unsplash.com/random/300x200?chennai' },
   { name: 'DelhiAI', image: 'https://source.unsplash.com/random/300x200?delhi' },
   { name: 'GujaratAI', image: 'https://source.unsplash.com/random/300x200?ahmedabad' },
   { name: 'RajasthanAI', image: 'https://source.unsplash.com/random/300x200?jaipur' },
-  { name: 'HaryanaAI', image: 'https://source.unsplash.com/random/300x200?kolkata' },
+  { name: 'HaryanaAI', image: '/HARYANA_BANNER.jpg' },
   { name: 'UttraAI', image: 'https://source.unsplash.com/random/300x200?lucknow' },
   { name: 'AssamAI', image: 'https://source.unsplash.com/random/300x200?kochi' },
   { name: 'ChattisgarhAI', image: 'https://source.unsplash.com/random/300x200?chandigarh' },
@@ -62,84 +62,199 @@ const buttonVariants = {
 const Home = () => {
   const gridRef = useRef(null)
   const isInView = useInView(gridRef, { once: true, margin: "-100px" })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Check if screen is mobile on load
+    setIsMobile(window.innerWidth <= 768)
+    
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <div className="w-100">
       {/* Hero Section */}
-      <section className="position-relative" style={{height:"90vh"}}>
-        <div 
-          className="position-absolute" 
-          style={{
-            backgroundImage: "url('/INDIA_BANNER.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(1)",
-            height:"90vh",
-            width:"100%"
-          }}
-        />
-        <div className="position-relative h-100 d-flex align-items-center">
-          <div className="container">
-            <div className="row justify-content-end">
-              <div className="col-lg-6 col-md-8">
-                <motion.div
+      {isMobile ? (
+        // Mobile Layout - Stacked (image on top, content below)
+        <section className="position-relative" style={{height:"auto"}}>
+          {/* Hero Image for Mobile */}
+          <img 
+            src="/image.png" 
+            alt="Hero Background" 
+            style={{
+              width: '100%',
+              height: '60vh',
+              objectFit: 'fill',
+            }}
+          />
+          
+          {/* Hero Content Below Image in Mobile */}
+          <div style={{
+            backgroundColor: 'black',
+            padding: '1.5rem',
+            width: '100%',
+            textAlign: 'center'
+          }}>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-white mb-3"
+              style={{ 
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                fontSize: '1.8rem',
+                fontWeight: 'bold'
+              }}
+            >
+              JansevakAI
+            </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-white mb-3"
+              style={{ 
+                textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)',
+                fontSize: '1.2rem',
+                fontWeight: 'bold'
+              }}
+            >
+              AI Powered Citizen Support For Bharat
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-white mb-3"
+              style={{ fontSize: '1rem' }}
+            >
+              Revolutionizing Government Services With Intelligent AI Solutions.
+            </motion.p>
+            <div className="d-flex gap-2 justify-content-center">
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn btn-primary"
+                style={{ fontSize: '0.9rem' }}
+              >
+                Get In Touch
+              </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn btn-outline-light"
+                style={{ fontSize: '0.9rem' }}
+              >
+                Try For Free
+              </motion.button>
+            </div>
+          </div>
+        </section>
+      ) : (
+        // Desktop Layout - Content overlaid on image
+        <section className="position-relative" style={{height:"95vh", minHeight: "600px"}}>
+          {/* Hero Background Image for Desktop */}
+          <img 
+            src="/INDIA_BANNER.jpg" 
+            alt="Hero Background" 
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '95vh',
+              objectFit: 'fill',
+              zIndex: 1
+            }}
+          />
+          
+          {/* Hero Content - Directly on the image for Desktop */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 10,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            padding: '0 5%'
+          }}>
+            <div style={{
+              backgroundColor: 'transparent',
+              padding: '2rem',
+              borderRadius: '8px',
+              maxWidth: '500px',
+            }}>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="display-2 fw-bold mb-4 text-white hero-title"
+                style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+              >
+                JansevakAI
+              </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="display-6 fw-bold mb-4 text-white hero-subtitle"
+                style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}
+              >
+                AI Powered Citizen Support For Bharat
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="h5 mb-4 text-white hero-text"
+              >
+                Revolutionizing Government Services With Intelligent AI Solutions.
+              </motion.p>
+              <div className="d-flex gap-3">
+                <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-white p-4"
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn btn-primary btn-lg hero-btn"
                 >
-                  <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="display-2 fw-bold mb-4"
-                  >
-                    JansevakAI
-                  </motion.h1>
-                  <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="display-6 fw-bold mb-4"
-                  >
-                    AI Powered Citizen Support For Bharat
-                  </motion.h2>
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="h5 mb-4"
-                  >
-                    Revolutionizing Government Services With Intelligent AI Solutions.
-                  </motion.p>
-                  <div className="d-flex gap-3">
-                    <motion.button
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="btn btn-primary btn-lg"
-                    >
-                      Get In Touch
-                    </motion.button>
-                    <motion.button
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="btn btn-outline-light btn-lg"
-                    >
-                      Try For Free
-                    </motion.button>
-                  </div>
-                </motion.div>
+                  Get In Touch
+                </motion.button>
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn btn-outline-light btn-lg hero-btn"
+                >
+                  Try For Free
+                </motion.button>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* States Grid */}
       <section className="py-5">
@@ -173,7 +288,7 @@ const Home = () => {
                   >
                     <img
                       src={state.image}
-                      className="card-img-top object-fit-cover"
+                      className="card-img-top object-fit-fill"
                       style={{ height: '200px' }}
                       alt={state.name}
                     />
