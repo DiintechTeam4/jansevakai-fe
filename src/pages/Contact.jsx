@@ -1,7 +1,27 @@
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 const Contact = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if screen is mobile on load
+    setIsMobile(window.innerWidth <= 768);
+    
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener("resize", handleResize);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const contactInfo = [
     {
       icon: <FaMapMarkerAlt size={24} className="text-primary" />,
@@ -28,17 +48,37 @@ const Contact = () => {
   return (
     <div className="w-100">
       {/* Hero Section */}
-      <section className="position-relative bg-dark text-white" style={{ minHeight: '90vh' }}>
-        <div
-          className="position-absolute top-25 end-0 p-5"
-          style={{ maxWidth: "600px" }}
-        >
-          <div className="bg-opacity-75 p-4">
+      {isMobile ? (
+        // Mobile Layout - Stacked (image on top, content below)
+        <section className="position-relative" style={{height:"auto"}}>
+          {/* Hero Image for Mobile */}
+          <img 
+            src="/image.png" 
+            alt="Contact Hero" 
+            style={{
+              width: '100%',
+              height: '50vh',
+              objectFit: 'cover',
+            }}
+          />
+          
+          {/* Hero Content Below Image in Mobile */}
+          <div style={{
+            backgroundColor: 'black',
+            padding: '1.5rem',
+            width: '100%',
+            textAlign: 'center'
+          }}>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="display-2 fw-bold mb-4"
+              className="text-white mb-3"
+              style={{ 
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                fontSize: '1.8rem',
+                fontWeight: 'bold'
+              }}
             >
               Contact Us
             </motion.h1>
@@ -46,13 +86,72 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="h5 mb-4"
+              className="text-white mb-3"
+              style={{ fontSize: '1rem' }}
             >
               We're here to help you. Get in touch with us today.
             </motion.p>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        // Desktop Layout - Content overlaid on image
+        <section className="position-relative" style={{height:"95vh", minHeight: "500px"}}>
+          {/* Hero Background Image for Desktop */}
+          <img 
+            src="/INDIA_BANNER.jpg" 
+            alt="Contact Hero" 
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '95vh',
+              objectFit: 'fill',
+              zIndex: 1
+            }}
+          />
+          
+          {/* Hero Content - Directly on the image for Desktop */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: 10,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            padding: '0 5%'
+          }}>
+            <div style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              padding: '2.5rem',
+              borderRadius: '8px',
+              maxWidth: '600px',
+              textAlign: 'center'
+            }}>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="display-4 fw-bold mb-4 text-white"
+                style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+              >
+                Contact Us
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="h5 mb-4 text-white"
+              >
+                We're here to help you. Get in touch with us today.
+              </motion.p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Contact Form Section */}
       <section className="py-5">

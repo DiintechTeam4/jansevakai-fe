@@ -66,7 +66,7 @@ const Header = () => {
               ))}
               
               {/* States Dropdown */}
-              <div className="position-relative">
+              {/* <div className="position-relative">
                 <button 
                   className="text-white text-decoration-none bg-transparent border-0 py-2"
                   onClick={toggleStatesDropdown}
@@ -87,7 +87,7 @@ const Header = () => {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
             </motion.div>
           </nav>
 

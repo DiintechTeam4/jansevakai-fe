@@ -1,19 +1,14 @@
 import { motion, useInView } from 'framer-motion'
 import { FaRobot, FaArrowRight } from 'react-icons/fa'
 import { useRef, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
-const states = [
-  { name: 'UttarAI', image: '/img1.png', linkTo: '/uttar' },
-  { name: 'MahaAI', image: '/img2.png', linkTo: '/maharashtra' },
-  { name: 'MadhyaAI', image: '/img3.png', linkTo: '/madhya' },
-  { name: 'DelhiAI', image: '', linkTo: '/delhi' },
-  { name: 'GujaratAI', image: 'https://source.unsplash.com/random/300x200?ahmedabad', linkTo: '/gujarat' },
-  { name: 'RajasthanAI', image: 'https://source.unsplash.com/random/300x200?jaipur', linkTo: '/rajasthan' },
-  { name: 'HaryanaAI', image: '', linkTo: '/haryana' },
-  { name: 'UttraAI', image: 'https://source.unsplash.com/random/300x200?lucknow', linkTo: '/uttra' },
-  { name: 'AssamAI', image: 'https://source.unsplash.com/random/300x200?kochi', linkTo: '/assam' },
-  { name: 'ChattisgarhAI', image: 'https://source.unsplash.com/random/300x200?chandigarh', linkTo: '/chattisgarh' },
+const services = [
+  { name: 'Agriculture Advisory', image: 'https://source.unsplash.com/random/300x200?agriculture' },
+  { name: 'Education Assistance', image: 'https://source.unsplash.com/random/300x200?education' },
+  { name: 'Healthcare Support', image: 'https://source.unsplash.com/random/300x200?healthcare' },
+  { name: 'Tourism Guide', image: 'https://source.unsplash.com/random/300x200?tourism' },
+  { name: 'Business Assistance', image: 'https://source.unsplash.com/random/300x200?business' },
+  { name: 'Rural Development', image: 'https://source.unsplash.com/random/300x200?rural' },
 ]
 
 const cardVariants = {
@@ -24,46 +19,43 @@ const cardVariants = {
     scale: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.4,
-      type: "spring",
-      stiffness: 30,
-      damping: 20
-    }
-  }),
-  hover: {
-    scale: 1.03,
-    y: -5,
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-    transition: {
-      duration: 0.3,
+      duration: 0.5,
       type: "spring",
       stiffness: 50,
       damping: 15
     }
+  }),
+  hover: {
+    scale: 1.05,
+    y: -10,
+    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
   },
-  
+  tap: {
+    scale: 0.95,
+    transition: { duration: 0.2 }
+  }
 }
 
 const buttonVariants = {
   hover: {
-    scale: 1.02,
+    scale: 1.05,
     backgroundColor: "#0d6efd",
     color: "white",
-    transition: { 
-      duration: 0.2,
-      type: "tween"
-    }
+    transition: { duration: 0.3 }
   },
   tap: {
-    scale: 0.98,
-    transition: { 
-      duration: 0.1,
-      type: "tween"
-    }
+    scale: 0.95,
+    transition: { duration: 0.2 }
   }
 }
 
-const Home = () => {
+const GujaratAI = () => {
   const gridRef = useRef(null)
   const isInView = useInView(gridRef, { once: true, margin: "-100px" })
   const [isMobile, setIsMobile] = useState(false)
@@ -94,10 +86,10 @@ const Home = () => {
           {/* Hero Image for Mobile */}
           <img 
             src="/image.png" 
-            alt="Hero Background" 
+            alt="Gujarat  AI" 
             style={{
               width: '100%',
-              height: '50vh',
+              height: '60vh',
               objectFit: 'fill',
             }}
           />
@@ -120,7 +112,8 @@ const Home = () => {
                 fontWeight: 'bold'
               }}
             >
-              JansevakAI
+              {/* महाराष्ट्र AI */}
+              Gujarat  AI
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -133,7 +126,7 @@ const Home = () => {
                 fontWeight: 'bold'
               }}
             >
-              AI Powered Citizen Support For Bharat
+              AI Powered Citizen Support For Gujarat 
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -142,9 +135,9 @@ const Home = () => {
               className="text-white mb-3"
               style={{ fontSize: '1rem' }}
             >
-              Revolutionizing Government Services With Intelligent AI Solutions.
+              Revolutionizing Gujarat  Government Services With Intelligent AI Solutions.
             </motion.p>
-            <div className="d-flex gap-4 justify-content-center">
+            <div className="d-flex gap-2 justify-content-center">
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -154,7 +147,7 @@ const Home = () => {
                 className="btn btn-primary"
                 style={{ fontSize: '0.9rem' }}
               >
-                Get In Touch
+                Get Started
               </motion.button>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -165,7 +158,7 @@ const Home = () => {
                 className="btn btn-outline-light"
                 style={{ fontSize: '0.9rem' }}
               >
-                Try Now
+                Learn More
               </motion.button>
             </div>
           </div>
@@ -176,7 +169,7 @@ const Home = () => {
           {/* Hero Background Image for Desktop */}
           <img 
             src="/INDIA_BANNER.jpg" 
-            alt="Hero Background" 
+            alt="Gujarat  AI" 
             style={{
               position: 'absolute',
               top: 0,
@@ -202,10 +195,10 @@ const Home = () => {
             padding: '0 5%'
           }}>
             <div style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              backgroundColor: 'transparent',
               padding: '2rem',
               borderRadius: '8px',
-              maxWidth: '500px',
+              maxWidth: '600px',
             }}>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -214,7 +207,8 @@ const Home = () => {
                 className="display-2 fw-bold mb-4 text-white hero-title"
                 style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
               >
-                JansevakAI
+                {/* महाराष्ट्र AI */}
+                Gujarat  AI
               </motion.h1>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -223,7 +217,7 @@ const Home = () => {
                 className="display-6 fw-bold mb-4 text-white hero-subtitle"
                 style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}
               >
-                AI Powered Citizen Support For Bharat
+                AI Powered Citizen Support For Gujarat 
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -231,7 +225,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="h5 mb-4 text-white hero-text"
               >
-                Revolutionizing Government Services With Intelligent AI Solutions.
+                Revolutionizing Gujarat  Government Services With Intelligent AI Solutions.
               </motion.p>
               <div className="d-flex gap-3">
                 <motion.button
@@ -242,7 +236,7 @@ const Home = () => {
                   whileTap={{ scale: 0.95 }}
                   className="btn btn-primary btn-lg hero-btn"
                 >
-                  Get In Touch
+                  Get Started
                 </motion.button>
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
@@ -252,15 +246,15 @@ const Home = () => {
                   whileTap={{ scale: 0.95 }}
                   className="btn btn-outline-light btn-lg hero-btn"
                 >
-                  Try Now
+                  Learn More
                 </motion.button>
               </div>
             </div>
           </div>
         </section>
       )}
-
-      {/* States Grid */}
+      
+      {/* Services Grid */}
       <section className="py-5">
         <div className="container">
           <motion.h2
@@ -269,12 +263,12 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-5 display-5 fw-bold"
           >
-            State-wise AI Services
+            Gujarat  AI Services
           </motion.h2>
-          <div className="row g-4" ref={gridRef}>
-            {states.map((state, index) => (
+          {/* <div className="row g-4" ref={gridRef}>
+            {services.map((service, index) => (
               <motion.div
-                key={state.name}
+                key={service.name}
                 custom={index}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -291,10 +285,10 @@ const Home = () => {
                     className="overflow-hidden text-center px-4 py-4"
                   >
                     <img
-                      src={state.image}
+                      src={service.image}
                       className="card-img-top object-fit-fill"
-                      style={{ height: '50vh' }}
-                      alt={state.name}
+                      style={{ height: '200px' }}
+                      alt={service.name}
                     />
                   </motion.div>
                   <div className="card-body">
@@ -303,25 +297,63 @@ const Home = () => {
                       whileHover={{ color: "#0d6efd" }}
                       transition={{ duration: 0.3 }}
                     >
-                      {state.name}
+                      {service.name}
                     </motion.h3>
                     <p className="card-text text-muted">
-                      Discover AI solutions tailored for {state.name}
+                      AI-powered {service.name.toLowerCase()} solutions for Gujarat  citizens
                     </p>
-                    <Link to={state.linkTo}>
-                      <motion.button
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="btn btn-outline-primary"
-                      >
-                        Learn More
-                      </motion.button>
-                    </Link>
+                    <motion.button
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      className="btn btn-outline-primary"
+                    >
+                      Explore
+                    </motion.button>
                   </div>
                 </motion.div>
               </motion.div>
             ))}
+          </div> */}
+        </div>
+      </section>
+
+      {/* About Gujarat  AI Section */}
+      <section className="py-5 bg-light">
+        <div className="container">
+          <div className="row align-items-center g-5">
+            <div className="col-lg-6">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="display-5 fw-bold mb-4">About Gujarat  AI</h2>
+                <p className="lead mb-4">
+                  Gujarat  AI is dedicated to transforming government services across the state using cutting-edge artificial intelligence.
+                </p>
+                <p className="mb-4">
+                  Our solutions are designed to empower citizens, streamline government operations, and create a more connected, efficient state administration.
+                </p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn btn-primary btn-lg"
+                >
+                  Learn More About Us
+                </motion.button>
+              </motion.div>
+            </div>
+            <div className="col-lg-6">
+              <motion.img
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                src="https://source.unsplash.com/random/600x400?Gujarat "
+                className="img-fluid rounded shadow"
+                alt="Gujarat "
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -329,4 +361,4 @@ const Home = () => {
   )
 }
 
-export default Home 
+export default GujaratAI 
