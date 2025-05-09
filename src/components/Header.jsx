@@ -145,22 +145,6 @@ const Header = () => {
                 </Link>
               ))}
               
-              {/* States Section in Mobile Menu */}
-              <div className="mt-2">
-                <div className="text-white-50 px-3 py-1 small">STATES</div>
-                {stateLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={`text-white text-decoration-none py-2 px-3 rounded d-block ${
-                      location.pathname === link.path ? 'bg-primary' : 'hover-bg-primary'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
               
               <div className="d-flex flex-column gap-3 pt-3 border-top">
                 <Link
