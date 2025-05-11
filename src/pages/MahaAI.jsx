@@ -17,12 +17,12 @@ const departments = [
   { 
     name: 'Home Department', 
     website: 'home.maharashtra.gov.in', 
-    image: '/mp/Homeland-mh.png' 
+    image: '/mp/HOmeland-mh.png' 
   },
   { 
     name: 'Public Health Department', 
     website: 'phd.maharashtra.gov.in', 
-    image: '/mp/Health1.png'
+    image: '/mp/Heath1.png'
   },
   { 
     name: 'Revenue and Forest Department', 
