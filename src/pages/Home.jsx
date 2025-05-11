@@ -144,7 +144,7 @@ const Home = () => {
                 fontWeight: "bold",
               }}
             >
-              JnsevakAI
+              JansevakAI
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -157,8 +157,7 @@ const Home = () => {
                 fontWeight: "bold",
               }}
             >
-              AI Powered Citizen Support For Bharat{" "}
-            </motion.h2>
+Revolutionizing Citizen Services with Agentic AI            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
