@@ -190,7 +190,7 @@ const About = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-5 bg-light">
+      {/* <section className="py-5 bg-light">
         <div className="container">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -220,7 +220,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
       <section className="py-5">

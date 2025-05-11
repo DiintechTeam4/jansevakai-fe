@@ -156,7 +156,7 @@ const Contact = () => {
       {/* Contact Form Section */}
       <section className="py-5">
         <div className="container">
-          <div className="row g-4">
+          <div className="row g-4 justify-content-center">
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -164,9 +164,15 @@ const Contact = () => {
               transition={{ duration: 0.5 }}
               className="col-md-4"
             >
-              <div className="card border-0 shadow-sm h-100">
+              <div className=" border-0 shadow-sm" style={{ 
+                backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+                backdropFilter: 'blur(10px)',
+                height: '100%',
+                maxWidth: '400px',
+                margin: '0 auto'
+              }}>
                 <div className="card-body p-4">
-                  <h2 className="h4 fw-bold mb-4">Contact Information</h2>
+                  <h2 className="h4 fw-bold mb-4 text-white">Contact Information</h2>
                   <div className="d-flex flex-column gap-4">
                     {contactInfo.map((info, index) => (
                       <motion.div
@@ -178,8 +184,8 @@ const Contact = () => {
                       >
                         <div className="mt-1">{info.icon}</div>
                         <div>
-                          <h3 className="h6 fw-bold mb-1">{info.title}</h3>
-                          <p className="text-muted mb-0">{info.content}</p>
+                          <h3 className="h6 fw-bold mb-1 text-white">{info.title}</h3>
+                          <p className="text-white-50 mb-0">{info.content}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -195,53 +201,58 @@ const Contact = () => {
               transition={{ duration: 0.5 }}
               className="col-md-8"
             >
-              <div className="card border-0 shadow-sm">
+              <div className=" border-0 shadow-sm" style={{ 
+                backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+                backdropFilter: 'blur(10px)',
+                maxWidth: '800px',
+                margin: '0 auto'
+              }}>
                 <div className="card-body p-4">
-                  <h2 className="h4 fw-bold mb-4">Send us a Message</h2>
+                  <h2 className="h4 fw-bold mb-4 text-white">Send us a Message</h2>
                   <form>
                     <div className="row g-3">
                       <div className="col-md-6">
                         <div className="form-floating">
                           <input
                             type="text"
-                            className="form-control"
+                            className="form-control bg-dark text-white border-secondary"
                             id="name"
                             placeholder="Your Name"
                           />
-                          <label htmlFor="name">Your Name</label>
+                          <label htmlFor="name" className="text-white-50">Your Name</label>
                         </div>
                       </div>
                       <div className="col-md-6">
                         <div className="form-floating">
                           <input
                             type="email"
-                            className="form-control"
+                            className="form-control bg-dark text-white border-secondary"
                             id="email"
                             placeholder="Your Email"
                           />
-                          <label htmlFor="email">Your Email</label>
+                          <label htmlFor="email" className="text-white-50">Your Email</label>
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-floating">
                           <input
                             type="text"
-                            className="form-control"
+                            className="form-control bg-dark text-white border-secondary"
                             id="subject"
                             placeholder="Subject"
                           />
-                          <label htmlFor="subject">Subject</label>
+                          <label htmlFor="subject" className="text-white-50">Subject</label>
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-floating">
                           <textarea
-                            className="form-control"
+                            className="form-control bg-dark text-white border-secondary"
                             id="message"
                             placeholder="Your Message"
                             style={{ height: "150px" }}
                           ></textarea>
-                          <label htmlFor="message">Your Message</label>
+                          <label htmlFor="message" className="text-white-50">Your Message</label>
                         </div>
                       </div>
                       <div className="col-12">
@@ -250,6 +261,12 @@ const Contact = () => {
                           whileTap={{ scale: 0.98 }}
                           className="btn btn-primary btn-lg w-100"
                           type="submit"
+                          style={{ 
+                            backgroundColor: '#ff8c00',
+                            borderColor: '#ff8c00',
+                            color: 'white',
+                            fontWeight: '600'
+                          }}
                         >
                           Send Message
                         </motion.button>
@@ -264,13 +281,13 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-5 bg-light">
+      <section className="py-5" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(10px)' }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="ratio ratio-21x9 rounded-3 overflow-hidden"
+            className="ratio ratio-21x9 rounded-3 overflow-hidden shadow-lg"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.5953603175503!2d77.31287667495492!3d28.581911086378625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4594dba18af%3A0x1db81df5ca570f05!2s41%2C%20Red%20FM%20Road%2C%20D%20Block%2C%20Sector%202%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1746534329263!5m2!1sen!2sin"

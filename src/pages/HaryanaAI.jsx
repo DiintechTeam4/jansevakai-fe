@@ -80,23 +80,23 @@ const HaryanaAI = () => {
   return (
     <div className="w-100">
       {/* Hero Section */}
+      
       {isMobile ? (
         // Mobile Layout - Stacked (image on top, content below)
-        <section className="position-relative" style={{height:"auto"}}>
+        <section className="position-relative bg-dark" style={{height:"auto"}}>
           {/* Hero Image for Mobile */}
           <img 
-            src="/image3.png" 
-            alt="Haryana AI" 
+            src="/HARYANA MAP.png" 
+            alt="Hero Background" 
             style={{
               width: '100%',
-              height: '60vh',
-              objectFit: 'fill',
+              height: '50vh',
+              objectFit: 'cover',
             }}
           />
           
           {/* Hero Content Below Image in Mobile */}
           <div style={{
-            backgroundColor: 'black',
             padding: '1.5rem',
             width: '100%',
             textAlign: 'center'
@@ -112,8 +112,7 @@ const HaryanaAI = () => {
                 fontWeight: 'bold'
               }}
             >
-              {/* महाराष्ट्र AI */}
-              Haryana AI
+              HaryanaAI
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -126,8 +125,8 @@ const HaryanaAI = () => {
                 fontWeight: 'bold'
               }}
             >
-              AI Powered Citizen Support For Haryana
-            </motion.h2>
+             AI Powered Citizen Support For Haryana          
+             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -135,9 +134,10 @@ const HaryanaAI = () => {
               className="text-white mb-3"
               style={{ fontSize: '1rem' }}
             >
-              Revolutionizing Haryana Government Services With Intelligent AI Solutions.
-            </motion.p>
-            <div className="d-flex gap-2 justify-content-center">
+          Revolutionizing Haryana Government Services With Intelligent AI Solutions.
+
+</motion.p>
+            <div className="d-flex gap-4 justify-content-center">
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,7 +147,7 @@ const HaryanaAI = () => {
                 className="btn btn-primary"
                 style={{ fontSize: '0.9rem' }}
               >
-                Get Started
+                Get In Touch
               </motion.button>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -158,102 +158,79 @@ const HaryanaAI = () => {
                 className="btn btn-outline-light"
                 style={{ fontSize: '0.9rem' }}
               >
-                Learn More
+                Try Now
               </motion.button>
             </div>
           </div>
         </section>
       ) : (
-        // Desktop Layout - Content overlaid on image
-        <section className="position-relative" style={{height:"95vh", minHeight: "600px"}}>
-          {/* Hero Background Image for Desktop */}
-          <img 
-            src="/HARYANA_BANNER.jpg" 
-            alt="Haryana AI" 
+      <section className="position-relative bg-dark d-flex flex-column flex-md-row flex-sm-row align-items-center justify-content-center" style={{ minHeight: "600px", height: "90vh" }}>
+        {/* Left Side: Image */}
+        <div className="flex-shrink-0" style={{ width: "100%", maxWidth: "50vw", height: "90vh", position: "relative", zIndex: 1 }}>
+          <img
+            src="/HARYANA MAP.png"
+            alt="Haryana AI"
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '95vh',
-              objectFit: 'fill',
-              zIndex: 1
+              width: "100%",
+              height: "100%",
+              objectFit: "fill",
+              borderTopLeftRadius: "16px",
+              borderBottomLeftRadius: "16px"
             }}
           />
-          
-          {/* Hero Content - Directly on the image for Desktop */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 10,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            padding: '0 5%'
-          }}>
-            <div style={{
-              backgroundColor: 'transparent',
-              padding: '2rem',
-              borderRadius: '8px',
-              maxWidth: '600px',
-            }}>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="display-2 fw-bold mb-4 text-white hero-title"
-                style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
-              >
-                {/* महाराष्ट्र AI */}
-                Haryana AI
-              </motion.h1>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="display-6 fw-bold mb-4 text-white hero-subtitle"
-                style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}
-              >
-                AI Powered Citizen Support For Haryana
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="h5 mb-4 text-white hero-text"
-              >
-                Revolutionizing Haryana Government Services With Intelligent AI Solutions.
-              </motion.p>
-              <div className="d-flex gap-3">
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn btn-primary btn-lg hero-btn"
-                >
-                  Get Started
-                </motion.button>
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn btn-outline-light btn-lg hero-btn"
-                >
-                  Learn More
-                </motion.button>
-              </div>
-            </div>
+        </div>
+        {/* Right Side: Content */}
+        <div className="d-flex flex-column justify-content-center align-items-center px-4 py-5" style={{ width: "100%", maxWidth: "40vw", zIndex: 2 }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="display-2 fw-bold mb-4 text-white hero-title"
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+          >
+            HaryanaAI
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="display-6 fw-bold mb-4 text-white hero-subtitle"
+            style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.5)' }}
+          >
+            AI Powered Citizen Support For Haryana
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h5 mb-4 text-white hero-text"
+          >
+            Revolutionizing Haryana Government Services With Intelligent AI Solutions.
+          </motion.p>
+          <div className="d-flex gap-3">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn btn-primary btn-lg hero-btn"
+            >
+              Get Started
+            </motion.button>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn btn-outline-light btn-lg hero-btn"
+            >
+              Try Now
+            </motion.button>
           </div>
-        </section>
-      )}
-      
+        </div>
+      </section>)}
       {/* Services Grid */}
       <section className="py-5">
         <div className="container">

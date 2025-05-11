@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header className="py-3 sticky-top bg-dark text-white">
-      <div className="container">
+      <div className="container-fluid">
         <div className="d-flex justify-content-between align-items-center">
           {/* Logo */}
           <motion.div
@@ -40,7 +40,9 @@ const Header = () => {
           >
             <Link to="/" className="text-white text-decoration-none">
               {/* <FaRobot size={24} className="me-2" /> */}
-              <span className="h5 mb-0">JansevakAI</span>
+              <span className="h5 mb-0 d-flex align-items-center gap-4">
+                <img src="/JANSEVAKAI_LOGO_VERTICAL.png" alt="logo" style={{width: '100%', height: '30px' , marginLeft:"20px"}}/>
+              </span>
             </Link>
           </motion.div>
 

@@ -19,37 +19,40 @@ import GujaratAI from './pages/GujaratAI'
 import RajasthanAI from './pages/RajasthanAI'
 import ChattisgarhAI from './pages/Chattisgarh'
 import UttraAI from './pages/UttraAI'
+import Admindashboard from './pages/Admindashboard'
+import Clientdashboard from './pages/Clientdashboard'
 
 function App() {
   return (
+    <>
     <Router>
       <ScrollToTop />
       <div className="d-flex flex-column min-vh-100">
-        <Header />
         <main className="flex-grow-1">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<><Header /><Home /><Footer /></>} />
+            <Route path="/about" element={<><Header /><About /><Footer /></>} />
+            <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/maharashtra" element={<MahaAI />} />
-            <Route path="/haryana" element={<HaryanaAI />} />
-            <Route path="/uttar" element={<UttarAI />} />
+            <Route path="/maharashtra" element={<><Header /><MahaAI /><Footer /></>} />
+            <Route path="/haryana" element={<><Header /><HaryanaAI /><Footer /></>} />
+            <Route path="/uttar" element={<><Header /><UttarAI /><Footer /></>} />
             <Route path="/madhya" element={<MadhyaAI />} />
-            <Route path="/delhi" element={<DelhiAI/>} />
-            <Route path="/assam" element={<AssamAI />} />
-            <Route path="/gujarat" element={<GujaratAI />} />
-            <Route path="/rajasthan" element={<RajasthanAI />} />
-            <Route path="/chattisgarh" element={<ChattisgarhAI />} />
-            <Route path="/uttra" element={<UttraAI />} />
-
-
+            <Route path="/delhi" element={<><Header /><DelhiAI /><Footer /></>} />
+            <Route path="/assam" element={<><Header /><AssamAI /><Footer /></>} />
+            <Route path="/gujarat" element={<><Header /><GujaratAI /><Footer /></>} />
+            <Route path="/rajasthan" element={<><Header /><RajasthanAI /><Footer /></>} />
+            <Route path="/chattisgarh" element={<><Header /><ChattisgarhAI /><Footer /></>} />
+            <Route path="/uttra" element={<><Header /><UttraAI /><Footer /></>} />
+            <Route path="/admindashboard" element={<Admindashboard />} />
+            <Route path="/clientdashboard" element={<Clientdashboard />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
+    
+    </>
   )
 }
 

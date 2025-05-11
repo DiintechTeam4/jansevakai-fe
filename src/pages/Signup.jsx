@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
-import { FaUser, FaLock, FaEnvelope, FaPhone, FaGoogle, FaGithub } from 'react-icons/fa'
+import { FaUser, FaLock, FaEnvelope, FaGoogle, FaFacebook } from 'react-icons/fa'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Signup = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     password: '',
     confirmPassword: '',
     agreeTerms: false
@@ -28,50 +27,39 @@ const Signup = () => {
   }
 
   return (
-    <div className="w-100">
-      {/* Hero Section */}
-      <section className="position-relative bg-dark text-white" style={{ minHeight: '90vh' }}>
-        <div className="container h-100">
-          <div className="row h-100 align-items-center">
-            <div className="col-md-6">
+    <div className="w-100 min-vh-100 d-flex align-items-center" style={{
+      background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #ff8c00 100%)'
+    }}>
+      <section className="w-100">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-8 col-lg-6 col-xl-5">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
+                className="border-0 shadow-lg"
+                style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  backdropFilter: 'blur(60px)',
+                  borderRadius: '12px',
+                  padding: '2rem'
+                }}
               >
-                <h1 className="display-4 fw-bold mb-4">Create Account</h1>
-                <p className="lead mb-4">
-                  Join us to access exclusive features and manage your services.
-                </p>
-                <div className="d-flex gap-3">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn btn-outline-light"
+                <div>
+                  {/* Welcome Message */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center mb-5"
                   >
-                    <FaGoogle className="me-2" />
-                    Sign up with Google
-                  </motion.button>
-                  {/* <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn btn-outline-light"
-                  >
-                    <FaGithub className="me-2" />
-                    Sign up with GitHub
-                  </motion.button> */}
-                </div>
-              </motion.div>
-            </div>
-            <div className="col-md-6">
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="card bg-dark bg-opacity-50 border-0 shadow-lg"
-              >
-                <div className="card-body p-4">
-                  <h2 className="h4 fw-bold mb-4 text-center">Sign Up</h2>
+                    <h1 className="display-4 fw-bold mb-3 text-white">Create Account</h1>
+                    <p className="lead text-white-50">
+                      Join us to access all services and manage your account.
+                    </p>
+                  </motion.div>
+
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                       <div className="form-floating">
@@ -106,24 +94,6 @@ const Signup = () => {
                         <label htmlFor="email" className="text-white-50">
                           <FaEnvelope className="me-2" />
                           Email
-                        </label>
-                      </div>
-                    </div>
-                    <div className="mb-3">
-                      <div className="form-floating">
-                        <input
-                          type="tel"
-                          className="form-control bg-dark bg-opacity-25 text-white border-secondary"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Phone Number"
-                          required
-                        />
-                        <label htmlFor="phone" className="text-white-50">
-                          <FaPhone className="me-2" />
-                          Phone Number
                         </label>
                       </div>
                     </div>
@@ -175,7 +145,7 @@ const Signup = () => {
                           required
                         />
                         <label className="form-check-label text-white-50" htmlFor="agreeTerms">
-                          I agree to the <Link to="/terms" className="text-primary text-decoration-none">Terms and Conditions</Link>
+                          I agree to the <Link to="/terms" className="text-primary">Terms of Service</Link> and <Link to="/privacy" className="text-primary">Privacy Policy</Link>
                         </label>
                       </div>
                     </div>
@@ -184,9 +154,34 @@ const Signup = () => {
                       whileTap={{ scale: 0.98 }}
                       className="btn btn-primary w-100 mb-3"
                       type="submit"
+                      style={{ 
+                        backgroundColor: '#ff8c00',
+                        borderColor: '#ff8c00'
+                      }}
                     >
                       Create Account
                     </motion.button>
+
+                    <div className="text-center text-white-50 mb-4">OR</div>
+
+                    {/* Social Login Buttons */}
+                    <div className="d-grid gap-2 mb-4">
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
+                      >
+                        <FaGoogle /> Continue with Google
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="btn btn-outline-light d-flex align-items-center justify-content-center gap-2"
+                      >
+                        <FaFacebook /> Continue with Facebook
+                      </motion.button>
+                    </div>
+
                     <div className="text-center">
                       <span className="text-white-50">Already have an account? </span>
                       <Link to="/login" className="text-primary text-decoration-none">
@@ -204,4 +199,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp
