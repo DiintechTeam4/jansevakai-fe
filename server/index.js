@@ -1,27 +1,30 @@
 const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const authRouter = require('./routers/authrouters');
 const connectDB = require('./config/db');
-
-// Load environment variables
-dotenv.config();
-
+const dotenv = require('dotenv');
+const cors = require('cors');
+const authRoutes = require('./routes/authroutes');
+const adminRoutes = require('./routes/adminroutes');
 const app = express();
 
-// Middleware
-app.use(cors());
+dotenv.config();
 app.use(express.json());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
-// Routes
-app.use('/api/auth', authRouter);
-
-
-
-const PORT = process.env.PORT || 5000;
-
-connectDB();
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
+app.use('/api/auth', authRoutes);   
+app.use('/api/admin', adminRoutes);
+
+const port = process.env.PORT || 4000;
+
+connectDB().then(() => {
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+})

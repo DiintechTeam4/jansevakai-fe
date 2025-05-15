@@ -1,23 +1,33 @@
 {
-  "name": "server",
+  "name": "login-reference-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node Server.js",
+    "dev": "nodemon Server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiintechTeam4/login-reference-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DiintechTeam4/login-reference-backend/issues"
+  },
+  "homepage": "https://github.com/DiintechTeam4/login-reference-backend#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.2",
     "nodemon": "^3.1.10"
   }
 }
