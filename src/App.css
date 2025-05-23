@@ -1,0 +1,239 @@
+#root {
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem; */
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --primary-color: #0d6efd;
+  --dark-color: #212529;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-dark {
+  background-color: var(--dark-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hero Section Responsive Background */
+.hero-bg {
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Fallback color */
+  background-color: #e65100;
+}
+
+/* Desktop background - more specific selector to increase priority */
+@media (min-width: 769px) {
+  .hero-bg {
+    background: url('/INDIA_BANNER.jpg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+  .hero-bg {
+    background: url('/image.png') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Content Positioning */
+.hero-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 8%;
+  padding-right: 5%;
+}
+
+.hero-content-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile View Hero Content */
+@media (max-width: 768px) {
+  /* Create a layout with image on top and content below */
+  .position-relative {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+  }
+  
+  /* Adjust the image height */
+  section.position-relative img {
+    height: 60vh !important;
+    position: relative !important;
+  }
+  
+  /* Position the content wrapper below the image */
+  .hero-content-wrapper {
+    position: relative;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hero-content-box {
+    background-color: #000;
+    border-radius: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 2rem 1rem;
+    box-shadow: none;
+  }
+  
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+  }
+  
+  .hero-text {
+    font-size: 1rem !important;
+  }
+  
+  .hero-btn {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  /* Center button group */
+  .hero-content-box .d-flex {
+    justify-content: center;
+  }
+}
+
+/* States Grid */
+.states-grid {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.card-img-top {
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+  
+  .states-grid {
+    padding: 3rem 0;
+  }
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
